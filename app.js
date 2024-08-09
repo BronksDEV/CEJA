@@ -9,11 +9,6 @@ app.use(express.static('public'));
 // Middleware para parsear JSON
 app.use(express.json());
 
-// Middleware para CORS
-app.use(cors({
-  origin: 'https://bronksdev.github.io' // Substitua pelo domínio onde seu frontend está hospedado
-}));
-
 // Importa as rotas
 const studentRoutes = require('./routes/students');
 const attendanceRoutes = require('./routes/attendance');
