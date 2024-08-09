@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Faltas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gestão de Faltas de Alunos</h1>
+    
+    <div class="form-group">
+      <h2>Adicionar Aluno</h2>
+      <form id="addStudentForm" class="form-inline">
+        <label for="studentName">Nome:</label>
+        <input type="text" id="studentName" required>
+        <label for="studentClass">Turma:</label>
+        <input type="text" id="studentClass" required>
+        <button type="submit">Adicionar Aluno</button>
+      </form>
+    </div>
+
+    <div class="form-group">
+      <h2>Registrar Falta</h2>
+      <form id="addAttendanceForm" class="form-inline">
+        <label for="studentId">ID do Aluno:</label>
+        <input type="text" id="studentId" required>
+        <label for="attendanceDate">Data:</label>
+        <input type="date" id="attendanceDate" required>
+        <label for="present">Presente:</label>
+        <select id="present" required>
+          <option value="true">Sim</option>
+          <option value="false">Não</option>
+        </select>
+        <button type="submit">Registrar Falta</button>
+      </form>
+    </div>
+
+    <div class="form-group">
+      <h2>Lista de Alunos</h2>
+      <button id="loadStudents">Carregar Alunos</button>
+      <table id="studentsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Turma</th>
+            <th>Faltas</th>
+          </tr>
+        </thead>
+        <tbody id="studentsList">
+          <!-- Alunos serão listados aqui -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-group">
+      <h2>Calcular Frequência</h2>
+      <form id="calculateAttendanceForm" class="form-inline">
+        <label for="attendanceStudentId">ID do Aluno:</label>
+        <input type="text" id="attendanceStudentId" required>
+        <label for="totalSchoolDays">Dias Letivos:</label>
+        <input type="number" id="totalSchoolDays" required min="1">
+        <button type="submit">Calcular Frequência</button>
+      </form>
+      <p id="attendanceResult"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
