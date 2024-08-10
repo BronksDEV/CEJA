@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalSchoolDaysInput = document.getElementById('totalSchoolDays');
   const attendanceResult = document.getElementById('attendanceResult');
 
+  // URL base do Render
+  const baseURL = 'https://ceja.onrender.com';
+
   // Adicionar aluno
   addStudentForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const studentClass = document.getElementById('studentClass').value;
 
     try {
-      const response = await fetch('http://localhost:3000/students', {
+      const response = await fetch(`${baseURL}/students`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Função para carregar alunos e exibir na tabela
   async function loadStudents() {
     try {
-      const response = await fetch('http://localhost:3000/students');
+      const response = await fetch(`${baseURL}/students`);
       const data = await response.json();
 
       console.log('Resposta completa da API /students:', data);
@@ -92,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const present = document.getElementById('present').value === "true"; // Corrige para o valor correto do <select>
 
     try {
-      const response = await fetch('http://localhost:3000/attendances/register', {
+      const response = await fetch(`${baseURL}/attendances/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSchoolDays = totalSchoolDaysInput.value;
 
     try {
-      const response = await fetch(`http://localhost:3000/students/${studentId}/frequencia`, {
+      const response = await fetch(`${baseURL}/students/${studentId}/frequencia`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
